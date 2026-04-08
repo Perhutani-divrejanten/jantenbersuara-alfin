@@ -44,5 +44,5 @@ jobs:
             fix-encoding.ps1
             rebrand-to-warta-janten.ps1
             replace-logo.ps1
-          security: strict
+          security: loose
           log-level: verbose
