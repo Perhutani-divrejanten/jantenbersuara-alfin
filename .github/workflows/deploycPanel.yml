@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        
+      
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -21,17 +21,16 @@ jobs:
           username: deploy@wartajanten.net
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          protocol: ftp
+          protocol: ftps
           local-dir: ./
           server-dir: ./
-          timeout: 60000
+          timeout: 120000
           dangerous-clean-slate: false
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
             **/.github/**
-            **/lib/**
             *.bak*
             articles_temp.json
             .DS_Store
@@ -45,3 +44,5 @@ jobs:
             fix-encoding.ps1
             rebrand-to-warta-janten.ps1
             replace-logo.ps1
+          security: loose
+          log-level: verbose

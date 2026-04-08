@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Fetch articles.json dan render (use relative path)
-    fetch('/rticles.json')
+    fetch('/articles.json')
         .then(response => {
             if (!response.ok) throw new Error('Failed to load articles.json');
             return response.json();
